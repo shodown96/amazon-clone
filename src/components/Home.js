@@ -26,11 +26,11 @@ function Home() {
                         title="DualShock 4 Wireless Controller for PlayStation 4 - Magma Red" 
                         image="https://m.media-amazon.com/images/I/81L9+4dTIgL._AC_UY436_FMwebp_QL65_.jpg"
                         price="64" rating={4}/>
-                    {/* <Product
+                    <Product
                         id={4}
                         title="SanDisk 128GB microSDXC UHS-I-Memory-Card for Nintendo-Switch - SDSQXAO-128G-GNCZN" 
                         image="https://m.media-amazon.com/images/I/810o-i5jpiL._AC_UY436_FMwebp_QL65_.jpg"
-                        price="27.45" rating={5}/> */}
+                        price="27.45" rating={5}/>
                 </div>
                 <div className="home__row">
                     <Product
