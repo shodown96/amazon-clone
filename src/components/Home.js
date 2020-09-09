@@ -20,7 +20,7 @@ function Home() {
                         title="Sony PlayStation 4 Pro 1TB Console - Black (PS4 Pro)"
                         price="437.99"
                         image="https://m.media-amazon.com/images/I/51MphNv1eUL._AC_UY436_FMwebp_QL65_.jpg"
-                        rating={5} />
+                        rating={4} />
                     <Product
                         id={3}
                         title="DualShock 4 Wireless Controller for PlayStation 4 - Magma Red" 
