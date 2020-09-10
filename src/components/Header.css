@@ -14,6 +14,9 @@
     width:100px;
     margin: 0 20px;
     margin-top:18px;
+    border:1px solid transparent;
+    border-radius: 2px;
+    padding: 5px;
 }
 
 .header__search{
@@ -37,6 +40,12 @@
 
 }
 
+.header__menuIcon{
+    border:  1px solid darkgray;
+    border-radius: 2px;
+    padding:2px
+}
+
 .header__nav{
     display: flex;
     justify-content: space-evenly;
@@ -48,7 +57,11 @@
     margin-left:10px;
     margin-right: 10px;
     color:white;
+    border:1px solid transparent;
+    border-radius: 2px;
+    padding: 5px;
 }
+
 
 .header__optionLineOne{
     font-size: 10px;
@@ -62,11 +75,52 @@
     display: flex;
     align-items: center;
     color: white;
+    border:1px solid transparent;
+    border-radius: 2px;
+    padding: 5px;
 
+}
+
+.header__option:hover,
+.header__optionBasket:hover,
+.header__logo:hover{
+    border-color:white;
 }
 
 .header__basketCount{
     /* margin-left:10px;
     margin-right: 10px; */
-    margin:auto 10px auto 10px
+    margin:auto 10px auto 10px;
+    color:rgb(240, 136, 4);
+}
+
+.underHeader{
+        height: 40px;
+        display: flex;
+        align-items: center;
+        background-color: rgb(35, 47, 62);;
+        position: sticky;
+        top:60px;
+        z-index:90;
+        justify-content: space-between;
+}
+.underHeader__nav.location .header__option{
+    margin-left: -10px;
+}
+.underHeader__location{
+    display: flex;
+    flex-direction: column;
+    color:white;
+    border:1px solid transparent;
+    padding: 5px;
+}
+.underHeader__nav{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-between; */
+}
+
+
+.header__optionLineThree{
+    font-size: 13px !important;
 }

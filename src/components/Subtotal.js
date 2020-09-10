@@ -6,7 +6,7 @@ import { useStateValue } from '../context_api/StateProvider';
 
 function Subtotal() {
     const [{basket}] = useStateValue();
-    console.log(basket)
+    // console.log(basket)
     var sum = 0;
     basket.forEach((item)=>{
         sum += Number(item.price);

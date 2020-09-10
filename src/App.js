@@ -10,14 +10,13 @@ import { useStateValue } from './context_api/StateProvider';
 
 function App() {
   
-  const [{}, dispatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{user}, dispatch] = useStateValue();
   useEffect(() => {
     // will only run once when the app component loads...
-
     auth.onAuthStateChanged(authUser => {
-
       if (authUser) {
-        console.log('THE USER IS >>> ', authUser.email);
+        // console.log('THE USER IS >>> ', authUser.email);
         // the user just logged in / the user was logged in
 
         dispatch({
@@ -32,7 +31,7 @@ function App() {
         })
       }
     })
-  })  // }, []) not })
+  }, [dispatch])  // }, []) not })
 
   return (
     // BEM

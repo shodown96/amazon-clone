@@ -1,10 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import './Product.css'
 import StarIcon from '@material-ui/icons/Star'
 import { useStateValue } from '../context_api/StateProvider'
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 function Product({id, title, image, price, rating}) {
+
+    useEffect(() => {
+        AOS.init({
+            // initialise with other settings
+            duration : 1000,
+            once:true
+          });
+        // AOS.init();
+        AOS.refresh();
+    });
+
     // const [state, dispatch] = useStateValue();
+    // eslint-disable-next-line
     const [{basket}, dispatch] = useStateValue();
      const addToBasket = () => {
         console.log("This is the basket >>>", basket)
@@ -21,7 +35,7 @@ function Product({id, title, image, price, rating}) {
         })
      }
     return (
-        <div className="product" key={id}>
+        <div className="product" key={id} data-aos="fade-up" data-aos-delay={(id*100).toString()}>
             <div className="product__info">
                 <p>{title}</p>
                 <p className="product__price">

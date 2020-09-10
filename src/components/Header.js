@@ -5,12 +5,13 @@ import ShoppingBasketIcon from '@material-ui/icons/ShoppingBasket';
 import { Link } from 'react-router-dom';
 import { useStateValue } from '../context_api/StateProvider';
 import { auth } from '../config/config';
+import Categories from './Categories'
+import LocationOnOutlined from '@material-ui/icons/LocationOnOutlined';
 
 
 function Header(){
     // const [state, dispatch] = useStateValue();
     const [{basket, user}] = useStateValue();
-    
     const handleAuthenticaton = () => {
         if (user) {
           auth.signOut();
@@ -18,11 +19,13 @@ function Header(){
       }
 
     return(
+        <>
         <div className="header">
-        <Link to="/">
-            <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
-            alt="" className="header__logo"/>
-        </Link>
+            <Categories user={user}/>
+            <Link to="/">
+                <img src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+                alt="" className="header__logo"/>
+            </Link>
             <div className="header__search">
                 <input type="text" className="header__searchInput"/>
                 <SearchIcon className="header__searchIcon"/>
@@ -66,6 +69,58 @@ function Header(){
 
             </div>
         </div>
+        <div className="underHeader">
+            <div className="underHeader__nav location">
+                <LocationOnOutlined className="underHeader__location"/>
+                <div className="header__option">
+                    <span className="header__optionLineOne">
+                        Deliver to
+                    </span>
+                    <span className="header__optionLineTwo">
+                        Nigeria
+                    </span>
+                </div>
+                
+            </div>
+            <div className="underHeader__nav 2">
+
+                <div className="header__option">
+                    <span className="header__optionLineThree">
+                        Today's Deals
+                    </span>
+                </div>
+                <div className="header__option">
+                    <span className="header__optionLineThree">
+                        Customer Service
+                    </span>
+                </div>
+                <div className="header__option">
+                    <span className="header__optionLineThree">
+                        Gift cards
+                    </span>
+                </div>
+                <div className="header__option">
+                    <span className="header__optionLineThree">
+                        Registry
+                    </span>
+                </div>
+                <div className="header__option">
+                    <span className="header__optionLineThree">
+                        Sell
+                    </span>
+                </div>
+            </div>
+
+            <div className="underHeader__nav">
+                <div className="header__option">
+                    <span className="header__optionLineTwo">
+                        Amazon's Response to COVID-19
+                    </span>
+                </div>
+            </div>
+
+        </div>
+        </>
     )
 }
 

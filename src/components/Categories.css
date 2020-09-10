@@ -1,0 +1,16 @@
+.category-head{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background:rgb(19, 25, 33);
+    color:white
+}
+.user-icon{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+.grey-text{
+    color: rgb(150, 147, 151);
+    text-transform: uppercase;
+    font-size: 14px;
+}
