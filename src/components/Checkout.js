@@ -16,7 +16,7 @@ function Checkout() {
                 <img src="https://i.pinimg.com/originals/fa/69/b0/fa69b0a08743455f9e5978726044ee00.jpg"
                  alt="" className="checout__ad" height="100px" width="100%"/>
                  <div className="">
-                 <h3>{user ? user.email : "Guest" }</h3>
+                 <h3>{ "Hello " + (user ? user.email : "Guest") }</h3>
                      <h2 className="checkout__title">Your Shopping Basket</h2>
                      <FlipMove enterAnimation="accordionVertical" className="flip-wrapper">
                         {basket.map(item => { return(
