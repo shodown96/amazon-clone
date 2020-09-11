@@ -6,7 +6,8 @@ import { useStateValue } from "../context_api/StateProvider";
 import Order from './Order';
 
 function Orders() {
-    const [{ basket, user }, dispatch] = useStateValue();
+    // const [{ basket, user }, dispatch] = useStateValue();
+    const [{user}] = useStateValue();
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
