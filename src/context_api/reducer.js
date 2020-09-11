@@ -3,7 +3,7 @@ export const initialState = {
     user:null
 };
 // Selector
-export const getBasketTotal = (basket)=> basket?.reduce((amount,item)=> item.price + amount, 0);
+export const getBasketTotal = (basket)=> basket?.reduce((amount,item)=> Number(item.price) + amount, 0);
 
 export const reducer = (state, action) => {
     switch(action.type){
@@ -32,6 +32,11 @@ export const reducer = (state, action) => {
                 basket: newBasket
                 // basket: state.basket.filter(item => item.id !== action.id) the id is the same for all items in cart with same id
             };
+        case "EMPTY_BASKET":
+            return {
+                ...state,
+                basket: []
+            }
         case "SET_USER":
             return {
                 ...state,

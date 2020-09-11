@@ -2,10 +2,12 @@ import React from 'react'
 import './Subtotal.css';
 import CurrencyFormat from 'react-currency-format';
 import { useStateValue } from '../context_api/StateProvider';
+import { useHistory } from 'react-router-dom';
 // import { getBasketTotal } from '../context_api/reducer';
 
 function Subtotal() {
     const [{basket}] = useStateValue();
+    const history = useHistory();
     // console.log(basket)
     var sum = 0;
     basket.forEach((item)=>{
@@ -28,9 +30,9 @@ function Subtotal() {
             // value={getBasketTotal(basket)}
             displayType={"text"}
             thousandSeparator={true}
-            prefix={"£"} />
+            prefix={"$"} />
 
-            <button>Proceed to checkout</button>
+            <button onClick={e =>{history.push("/payment")}}>Proceed to checkout</button>
         </div>
     )
 }

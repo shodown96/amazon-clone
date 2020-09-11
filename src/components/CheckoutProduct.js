@@ -39,8 +39,8 @@ class CheckoutProduct extends Component {
     state = {}
     render(){
           // eslint-disable-next-line
-        const {id, title, image, price, rating, basket, dispatch} = this.props;
-        console.log(dispatch)
+        const {id, title, image, price, rating, hideButton, basket, dispatch} = this.props;
+        // console.log(dispatch)
         // const [{basket}, dispatch] = this.state;
         const removeFromBasket = () => {
             // console.log(basket)
@@ -66,7 +66,9 @@ class CheckoutProduct extends Component {
                         return <StarIcon key={i}/>
                     })}
                 </div>
-                <button onClick={removeFromBasket}>Remove from Basket</button>
+                {!hideButton && (
+                    <button onClick={removeFromBasket}>Remove from Basket</button>
+                )}
             </div>
         </div>
     )}
