@@ -1,0 +1,102 @@
+.footer {
+    color: white !important;
+}
+.footer-container{
+    background-color: #232f3e;
+    border-bottom: 1px solid #3a4553;
+    padding: 50px;
+}
+
+.footer-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-col ul {padding-left: 0px;}
+.footer-col ul li{list-style: none; font-size: 13px;}
+.footer-links{
+    background-color: #131a22;
+}
+
+.back-to-top{
+    background-color: #37475a;
+    width:100%;
+    text-align: center;
+    padding:15px;
+    color: #fff;
+    border: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.footer button:focus{box-shadow: none; outline: none;}
+
+.navFooterColHead {
+    font-weight: 700;
+    color: #FFF;
+}
+#navFooter .navFooterDescItem {
+    font-size: 11px!important;
+    padding: 0 .75em;
+    vertical-align: top;
+    text-align: left;
+    line-height: 115%;
+}
+#navFooter td {
+    font-family: inherit;
+    font-size: 13px;
+    line-height: 120%;
+    padding: 0 10px;
+}
+
+.footer-logo-section{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #232f3e;
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.footer-logo-section .buttons button{
+    background-color: #232f3e;
+    color: white;
+    justify-content: space-evenly;
+
+}
+
+.footer-logo-section button{
+    border:  1px solid white;
+    padding: 10px;
+    border-radius: 2px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.navFooterDescSpacer{
+    width:4%
+}
+
+.footer table{
+    padding: 30px 10px 30px 10px;
+}
+a.nav_a:link, .footer-credits a:link{ color: white !important; text-decoration: none;}
+a.nav_a:hover, .footer-credits a:hover{text-decoration: underline;}
+
+.navFooterDescText {
+    font-size: 10px;
+    color: #999;
+    /* color: #767676; */
+    line-height: 110%;
+    display: block;
+    margin-bottom: 1px;
+}
+
+.footer-credits{
+    color: #999;
+    text-align: center;
+    padding: 10px;
+    background-color: #131a22;
+    /* background-color: #232f3e; */
+    border-top: 1px solid #3a4553;
+    font-size: 14px;
+}

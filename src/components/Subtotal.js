@@ -19,10 +19,10 @@ function Subtotal() {
                 return(<>
                 {/* Part of the homework */}
                     <p>Subtotal ({basket.length} items): <strong>{value}</strong></p>
-                    <small className="subtotal__gift">
+                    {/* <small className="subtotal__gift">
                         <input type="checkbox" id=""/>
                         This order contains a gift
-                    </small>
+                    </small> */}
                 </>)
             }}
             decimalScale={2}

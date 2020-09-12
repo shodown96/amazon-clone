@@ -26,13 +26,22 @@
 }
 
 .product > button{
-    background-color: #f8c14b;
+    /* background-color: #f8c14b; */
     border:1px solid;
     margin-top:10px;
     border-color:#a88734 #9c7e31 #846a29;
     color: #111;
+
+    background: #f3d078;
+    background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+    background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
 }
 
+.product > button:focus{
+    border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  outline: none;
+}
 .product__price{
     margin-top: 5px;
 }

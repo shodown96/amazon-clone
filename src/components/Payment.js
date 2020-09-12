@@ -8,6 +8,7 @@ import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from '../context_api/reducer';
 import axios from './axios';
 import { db } from "../config/config";
+import FlipMove from 'react-flip-move';
 
 function Payment() {
     const [{ basket, user }, dispatch] = useStateValue();
@@ -97,6 +98,7 @@ function Payment() {
                         <h3>Review items and delivery</h3>
                     </div>
                     <div className="payment__items">
+                    <FlipMove enterAnimation="accordionVertical" className="flip-wrapper">
                         {basket.map(item => { return(
                             <CheckoutProduct
                                     dispatch={dispatch}
@@ -109,6 +111,7 @@ function Payment() {
                                     rating={item.rating} />
                                     )
                         })}
+                    </FlipMove>
                     </div>
                 </div>
 
@@ -126,10 +129,10 @@ function Payment() {
                                     return(<>
                                     {/* Part of the homework */}
                                         <h3>Order Total <strong>{value}</strong></h3>
-                                        <small className="subtotal__gift">
+                                        {/* <small className="subtotal__gift">
                                             <input type="checkbox" id=""/>
                                             This order contains a gift
-                                        </small>
+                                        </small> */}
                                     </>)
                                 }}
                                 decimalScale={2}

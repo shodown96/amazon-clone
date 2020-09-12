@@ -2,13 +2,25 @@ import React from 'react'
 import './Home.css';
 import Product from './Product';
 
-function Home() {
+// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+// import { Carousel } from 'react-responsive-carousel';
 
+function Home() {
+    
     return (
         <div className="home">
             <div className="home__container">
-                <img className="home__image" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_2x._CB432458382_.jpg" alt=""/>
-
+            {/* <Carousel showThumbs={false} showStatus={false} showIndicators={false} cla>
+                <div>
+                    <img className="home__image" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_2x._CB432458382_.jpg" alt=""/>
+                </div>
+                <div>
+                    <img className="home__image" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Currency_v2_en_US_1x._CB428993290_.jpg" alt=""/>
+                </div>
+            </Carousel> */}
+                <img className="home__image owl-item" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_45M_v2_2x._CB432458382_.jpg" alt=""/>
+                {/* <img className="home__image owl-item" src="https://images-na.ssl-images-amazon.com/images/G/01/AmazonExports/Fuji/2020/May/Hero/Fuji_TallHero_Currency_v2_en_US_1x._CB428993290_.jpg" alt=""/> */}
+                
                 <div className="home__row">
                     <Product
                         id={1}

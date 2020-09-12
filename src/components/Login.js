@@ -55,6 +55,7 @@ function Login() {
                      Conditions of Use & Sale. Please see our Privacy Notice,
                      our Cookies Notice and our Interest-based Ads.
                  </p>
+                 <div class="a-divider a-divider-break"><h5>New to Amazon?</h5></div>
                  <button className="login__registerButton" onClick={register}>Create your Amazon Account</button>
              </div>
         </div>

@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import './CheckoutProduct.css'
 import StarIcon from '@material-ui/icons/Star'
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 // import { useStateValue } from '../context_api/StateProvider';
 
 // function CheckoutProduct({id, title, image, price, rating}) {
@@ -37,6 +39,18 @@ import StarIcon from '@material-ui/icons/Star'
 
 class CheckoutProduct extends Component {
     state = {}
+    // componentDidMount = ()=>{
+    //         AOS.init({
+    //             // initialise with other settings
+    //             duration : 1000,
+    //             once:true,
+    //             ease:"ease-in-out"
+    //           });
+    //         // AOS.init();
+    //         // AOS.refresh();
+
+    //     }
+
     render(){
           // eslint-disable-next-line
         const {id, title, image, price, rating, hideButton, basket, dispatch} = this.props;
