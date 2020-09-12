@@ -38,7 +38,7 @@
   }
 
 
-  .payment__details > form > div > button {
+.payment__details > form > div > button {
     /* background: #f0c14b; */
     border-radius: 2px;
     width: 100%;
@@ -54,3 +54,9 @@
     background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
     background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
   }
+
+.payment__details > form > div > button:focus{
+    border-color: #e77600;
+  box-shadow: 0 0 3px 2px rgba(228, 121, 17, 0.5);
+  outline: none;
+}

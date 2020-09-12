@@ -66,6 +66,7 @@ function Checkout() {
             <div className="checkout__right">
                 <Subtotal />
                 <div className="checkout__relatedItems">
+                <h5 class="a-spacing-base">Sponsored Products related to items in your cart</h5>
                 {related.map(item => { return(
                             <CheckoutProduct
                                 dispatch={dispatch}
