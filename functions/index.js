@@ -1,7 +1,8 @@
 const functions = require('firebase-functions');
 const express = require('express');
 const cors = require("cors");
-const stripe = require("stripe")("sk_test_51HPyn0FyNz3IOs9CCPeTUMYXp1HJOP0ue7TUKKmVbaRcSKpeu0tNZVG2n15LOqRFiyR2cMmW1WeIEXhspenA0S0f00hXrhg37I");
+const stripeKey = functions.config().stripe.key
+const stripe = require("stripe")(stripeKey);
 // // // Create and Deploy Your First Cloud Functions
 // // // https://firebase.google.com/docs/functions/write-firebase-functions
 // //
@@ -63,13 +64,19 @@ const stripe = require("stripe")("sk_test_51HPyn0FyNz3IOs9CCPeTUMYXp1HJOP0ue7TUK
 const app = express();
 
 // - Middlewares
-app.use(cors({ origin: true }));
+// app.use();
 app.use(express.json());
 
+const options = {
+  origin: true,
+  methods: ["POST"],
+  credentials: true,
+  maxAge: 3600
+}
 // - API routes
 app.get("/", (request, response) => response.status(200).send("hello world"));
 
-app.post("/payments/create", async (request, response) => {
+app.post("/payments/create", cors(options), async (request, response) => {
   const total = request.query.total;
 
   console.log("Payment Request Recieved BOOM!!! for this amount >>> ", total);
@@ -78,6 +85,7 @@ app.post("/payments/create", async (request, response) => {
     amount: total, // subunits of the currency
     currency: "usd",
   });
+  // response.header("Access-Control-Allow-Origin", "*")
 
   // OK - Created
   response.status(201).send({
