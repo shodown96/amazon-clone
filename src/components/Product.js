@@ -21,7 +21,7 @@ function Product({id, title, image, price, rating}) {
     // eslint-disable-next-line
     const [{basket}, dispatch] = useStateValue();
      const addToBasket = () => {
-        console.log("This is the basket >>>", basket)
+        // console.log("This is the basket >>>", basket)
         //  dispatch the item into the data layer
         dispatch({
             type:"ADD_TO_BASKET",

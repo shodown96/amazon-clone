@@ -14,7 +14,7 @@ function Login() {
         auth.signInWithEmailAndPassword(email,password)
         .then(auth => {
             if(auth){
-                console.log("Login successful", auth.currentUser)
+                // console.log("Login successful", auth.currentUser)
                 history.push("/")
             }
         })
@@ -26,7 +26,7 @@ function Login() {
         .then(() => {
             // Registration successful
             if(auth){
-                console.log("Registration successful", auth.currentUser)
+                // console.log("Registration successful", auth.currentUser)
                 history.push("/")
             }
         })

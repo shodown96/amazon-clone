@@ -6,75 +6,87 @@ import { Link, useHistory } from 'react-router-dom';
 import {CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import CurrencyFormat from "react-currency-format";
 import { getBasketTotal } from '../context_api/reducer';
-import axios from './axios';
+import axios from '../axios';
 import { db } from "../config/config";
 import FlipMove from 'react-flip-move';
 
 function Payment() {
     const [{ basket, user }, dispatch] = useStateValue();
     const history = useHistory();
-    const stripe =  useStripe();
+    const stripe = useStripe();
     const elements = useElements();
-    
+
     const [succeeded, setSucceeded] = useState(false);
     const [processing, setProcessing] = useState("");
     const [error, setError] = useState(null);
     const [disabled, setDisabled] = useState(true);
-    const [clientSecret, setClientSecret] = useState(true);
+    const [clientSecret, setClientSecret] = useState(null);
 
     useEffect(() => {
         // generate the special stripe secret which allows us to charge a customer
-        const getClientSecret = async () => {
-            const response = await axios({
-                method: 'post',
-                // Stripe expects the total in a currencies subunits
-                url: `/payments/create?total=${getBasketTotal(basket) * 100}`
-            });
-            setClientSecret(response.data.clientSecret)
+        const getClientSecret = () => {
+            // Stripe expects the total in a currencies subunits
+            const amount = Math.floor(getBasketTotal(basket) * 100)
+        
+            axios.post(`/payments/create?total=${amount}`)
+            .then(r => setClientSecret(r.data.clientSecret))
+            .catch(e => console.log(e))
         }
+      getClientSecret();
+    }, [basket]);
 
-        getClientSecret();
-    }, [basket])
+    useEffect(() => {
+        if(!user) history.push("/login")
+    })
 
-    // console.log(getBasketTotal(basket)*100)
+    // clientSecret && console.log("THE SECRET IS >>>", clientSecret);
+    // user && console.log("👱", user.email);
 
-    console.log("THE SECRET IS >>>", clientSecret)
-    console.log('👱', user)
-
-    const handleSubmit = async (e)=>{
-        e.preventDefault();
-        setProcessing(true);
-
-        // eslint-disable-next-line
-        const payload = await stripe.confirmCardPayment(clientSecret,{
-            payment_method:{
-                card:elements.getElement(CardElement)
-            }
-        }).then(({paymentIntent}) =>{
-            // paymentIntent = payment confirmation
-            
-            db.collection('users').doc(user?.uid).collection('orders').doc(paymentIntent.id)
-                .set({
-                    basket: basket,
-                    amount: paymentIntent.amount,
-                    created: paymentIntent.created
-                })
-
-            setSucceeded(true);
-            setError(null);
-            setProcessing(false)
-
-            dispatch({
-                type:"EMPTY_BASKET"
-            })
-            
-            history.replace("/orders")
+    const handleSubmit = async (e) => {
+      e.preventDefault();
+      setProcessing(true);
+      // eslint-disable-next-lin
+      await stripe
+        .confirmCardPayment(clientSecret, {
+          payment_method: {
+            card: elements.getElement(CardElement),
+          },
         })
-    }
-    const handleChange = (e)=>{
-        setDisabled(e.empty);
-        setError(e.error ? e.error.message : "");
-    }
+        .then(({ paymentIntent }) => {
+          // paymentIntent = payment confirmation
+
+          db.collection("users")
+            .doc(user?.uid)
+            .collection("orders")
+            .doc(paymentIntent.id)
+            .set({
+              basket: basket,
+              amount: paymentIntent.amount,
+              created: paymentIntent.created,
+            });
+
+          setSucceeded(true);
+          setError(null);
+          setProcessing(false);
+
+          dispatch({
+            type: "EMPTY_BASKET",
+          });
+
+          history.replace("/orders");
+        })
+        .catch((e) => {
+          setError(e);
+          setSucceeded(false);
+          setProcessing(false);
+          console.log(e.response.message);
+        });
+    };
+
+    const handleChange = (e) => {
+      setDisabled(e.empty);
+      setError(e.error ? e.error.message : "");
+    };
 
     return (
         <div className="payment">
@@ -140,7 +152,7 @@ function Payment() {
                                 displayType={"text"}
                                 thousandSeparator={true}
                                 prefix={"$"} />
-                                <button disabled={processing || disabled || succeeded}>
+                                <button disabled={processing || disabled || succeeded || clientSecret === null}>
                                     <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
                                 </button>
                             </div>
