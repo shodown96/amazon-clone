@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './Product.css'
+import '../css/Product.css'
 import StarIcon from '@material-ui/icons/Star'
 import { useStateValue } from '../context_api/StateProvider'
 import AOS from "aos";

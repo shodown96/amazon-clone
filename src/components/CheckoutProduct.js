@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './CheckoutProduct.css'
+import '../css/CheckoutProduct.css'
 import StarIcon from '@material-ui/icons/Star'
 // import AOS from "aos";
 // import "aos/dist/aos.css";

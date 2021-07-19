@@ -12,7 +12,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 // import MailIcon from '@material-ui/icons/Mail';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import "./Categories.css"
+import "../css/Categories.css"
 
 // import { useStateValue } from '../context_api/StateProvider';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';

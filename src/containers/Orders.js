@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import "./Orders.css";
+import "../css/Orders.css";
 import { db } from "../config/config";
 
 import { useStateValue } from "../context_api/StateProvider";
-import Order from './Order';
+import Order from '../components/Order';
 
 function Orders() {
     // const [{ basket, user }, dispatch] = useStateValue();

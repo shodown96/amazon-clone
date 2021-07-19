@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import './Order.css'
+import '../css/Order.css'
 import moment from 'moment'
 import CheckoutProduct from './CheckoutProduct'
 import CurrencyFormat from 'react-currency-format'

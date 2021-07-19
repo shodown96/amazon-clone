@@ -1,7 +1,7 @@
 import React, { useState, useEffect  } from 'react'
-import "./Payment.css"
+import "../css/Payment.css"
 import { useStateValue } from '../context_api/StateProvider'
-import CheckoutProduct from './CheckoutProduct';
+import CheckoutProduct from '../components/CheckoutProduct';
 import { Link, useHistory } from 'react-router-dom';
 import {CardElement, useStripe, useElements } from "@stripe/react-stripe-js"
 import CurrencyFormat from "react-currency-format";
@@ -71,6 +71,9 @@ function Payment() {
 
           dispatch({
             type: "EMPTY_BASKET",
+          });
+          dispatch({
+            type: "PAYMENT_SUCCESSFUL"
           });
 
           history.replace("/orders");
@@ -153,7 +156,7 @@ function Payment() {
                                 thousandSeparator={true}
                                 prefix={"$"} />
                                 <button disabled={processing || disabled || succeeded || clientSecret === null}>
-                                    <span>{processing ? <p>Processing</p> : "Buy Now"}</span>
+                                    <span>{processing ? "Processing" : "Buy Now"}</span>
                                 </button>
                             </div>
                             {error && <div>{error}</div>}
